@@ -3,10 +3,9 @@
 This project demonstrates a **small cloud deployment** using 
 - **Terraform** for infrastructure, 
 - **Jenkins** for CI/CD, and a simple **Nginx web app** hosted on an **Ubuntu EC2 instance**. 
-### Cloud Services
 
 ## Architecture Choices
-
+- **Cloud provider**: AWS (widely used, good free-tier options for small demos).
 - **EC2 (Ubuntu)**: Hosts the "Hello World" web service using Nginx. Ubuntu was chosen for its lightweight nature and ease of configuration.
 - **CloudWatch Metrics & Alarms**: Monitors:
   - EC2 system status (`StatusCheckFailed`)
