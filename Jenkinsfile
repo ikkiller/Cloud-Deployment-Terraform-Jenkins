@@ -16,8 +16,8 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Testing HTML syntax...'
-                sh 'grep -q "<html>" ${HTML_SRC} && echo "HTML looks valid!"'
+                echo 'Running dummy test...'
+                sh 'bash scripts/dummy_test.sh'
             }
         }
 
@@ -25,10 +25,9 @@ pipeline {
             steps {
                 echo 'Deploying HTML to EC2 instance...'
 
-                // Use Jenkins credentials for IP and SSH key
                 withCredentials([
                     string(credentialsId: 'server_ip', variable: 'EC2_PUBLIC_IP'),
-                    sshUserPrivateKey(credentialsId: 'SSH_KEY', keyFileVariable: 'EC2_SSH_KEY')
+                    file(credentialsId: 'SSH_KEY', variable: 'EC2_SSH_KEY')
                 ]) {
                     sh """
                         echo "Deploying to EC2 at ${EC2_PUBLIC_IP}"
