@@ -21,7 +21,7 @@ resource "aws_instance" "web-server" {
   subnet_id                   = aws_subnet.public.id
   vpc_security_group_ids      = [aws_security_group.web_sg.id]
   
-  //associate_public_ip_address = true
+  iam_instance_profile        = aws_iam_instance_profile.ec2_cloudwatch_profile.name
 
   user_data                   = file("../../scripts/user_data.sh")
   root_block_device {
@@ -32,6 +32,9 @@ resource "aws_instance" "web-server" {
     tags = {
     Name = "web-instance-storage"
     }
+  }
+  metadata_options {
+  http_tokens = "optional"
   }
   tags = {
     Name = "web-instance"
