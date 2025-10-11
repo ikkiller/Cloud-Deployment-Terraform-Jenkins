@@ -41,8 +41,6 @@ This project demonstrates a **small cloud deployment** using
 │       ├── network.tf
 │       ├── outputs.tf
 │       ├── providers.tf
-│       ├── terraform.tfstate
-│       ├── terraform.tfstate.backup
 │       ├── terraform.tfvars
 │       └── variables.tf
 ├── Jenkinsfile
@@ -51,7 +49,6 @@ This project demonstrates a **small cloud deployment** using
 ├── README.md.bkp
 └── scripts
     ├── dummy_test.sh
-    ├── uptime_check.sh
     └── user_data.sh
 ```
 
