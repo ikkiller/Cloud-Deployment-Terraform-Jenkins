@@ -32,7 +32,7 @@ pipeline {
                     sh """
                         echo "Deploying to EC2 at ${EC2_PUBLIC_IP}"
                         scp -o StrictHostKeyChecking=no -i ${EC2_SSH_KEY} ${HTML_SRC} ${SSH_USER}@${EC2_PUBLIC_IP}:/tmp/
-                        ssh -o StrictHostKeyChecking=no -i ${EC2_SSH_KEY} ${SSH_USER}@${EC2_PUBLIC_IP} 'sudo mv /tmp/index.html /var/www/html/index.html && sudo systemctl restart nginx'
+                        ssh -o StrictHostKeyChecking=no -i ${EC2_SSH_KEY} ${SSH_USER}@${EC2_PUBLIC_IP} 'sudo mv /tmp/Index.html /var/www/html/Index.html && sudo systemctl restart nginx'
                     """
                 }
             }
