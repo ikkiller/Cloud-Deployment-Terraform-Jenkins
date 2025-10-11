@@ -9,32 +9,32 @@ data "aws_ami" "ubuntu" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-  owners      = ["099720109477"]
+  owners = ["099720109477"]
 }
 
 
 resource "aws_instance" "web-server" {
-  ami                         = data.aws_ami.ubuntu.id
-  instance_type               = "t3.micro" #Setting manually for now
-  key_name                    = var.ssh_key_name # This assumes you have a exsisting key
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t3.micro"       #Setting manually for now
+  key_name      = var.ssh_key_name # This assumes you have a exsisting key
 
-  subnet_id                   = aws_subnet.public.id
-  vpc_security_group_ids      = [aws_security_group.web_sg.id]
-  
-  iam_instance_profile        = aws_iam_instance_profile.ec2_cloudwatch_profile.name
+  subnet_id              = aws_subnet.public.id
+  vpc_security_group_ids = [aws_security_group.web_sg.id]
 
-  user_data                   = file("../../scripts/user_data.sh")
+  iam_instance_profile = aws_iam_instance_profile.ec2_cloudwatch_profile.name
+
+  user_data = file("../../scripts/user_data.sh")
   root_block_device {
     delete_on_termination = true
     encrypted             = false
     volume_size           = 10
     volume_type           = "gp3"
     tags = {
-    Name = "web-instance-storage"
+      Name = "web-instance-storage"
     }
   }
   metadata_options {
-  http_tokens = "optional"
+    http_tokens = "optional"
   }
   tags = {
     Name = "web-instance"

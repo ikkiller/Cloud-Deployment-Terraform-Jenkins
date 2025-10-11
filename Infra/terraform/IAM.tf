@@ -6,8 +6,8 @@ resource "aws_iam_policy" "ec2_cloudwatch_metrics" {
     Version = "2012-10-17"
     Statement = [
       {
-        Effect   = "Allow"
-        Action   = [
+        Effect = "Allow"
+        Action = [
           "cloudwatch:PutMetricData"
         ]
         Resource = "*"
