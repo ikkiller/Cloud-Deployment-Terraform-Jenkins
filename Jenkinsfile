@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        HTML_SRC = 'Code/index.html'
+        HTML_SRC = 'Code/Index.html'
         SSH_USER = 'ubuntu'
     }
 
