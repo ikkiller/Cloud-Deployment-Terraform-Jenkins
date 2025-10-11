@@ -13,5 +13,4 @@ variable "instance_type" {
 variable "ssh_key_name" {
   description = "SSH key name"
   type        = string
-  default     = "ec2-key"
-}
+  default     = "ec2-key" #Change according to your key name
