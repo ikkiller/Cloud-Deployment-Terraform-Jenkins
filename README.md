@@ -1,7 +1,7 @@
 # Mini Cloud Deployment Project
 
 This project demonstrates a **small cloud deployment** using 
-- **Terraform** for infrastructure, 
+- **Terraform** for infrastructure. 
 - **Jenkins** for CI/CD, and a simple **Nginx web app** hosted on an **Ubuntu EC2 instance**. 
 
 ## Architecture Choices
